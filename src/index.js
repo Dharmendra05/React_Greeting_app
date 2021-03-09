@@ -1,17 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+
+const time = new Date(2021, 2, 28, 14).getHours();
+let wish = "";
+
+const cssStyle = {};
+
+if(time >= 1 && time < 12){
+   wish = "Good Morning";
+   cssStyle.color = "red";
+
+}else if (time>=12 && time<19){
+    wish = "Good Afternoon"
+    cssStyle.color = "green";
+}else{
+	wish = "Good Night"
+	cssStyle.color = "blue";
+}
+
+const element = <><div><h1>Hello Sir, <span style={cssStyle}>{wish}</span> </h1></div></>;
+
+
+
+
+
+
+ReactDOM.render(element, document.getElementById('root'));
